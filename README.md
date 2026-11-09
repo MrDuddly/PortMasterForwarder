@@ -81,7 +81,7 @@ the gamepad controls are in [docs/GAMEPAD.md](docs/GAMEPAD.md).
 ### Run from source
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/MrDuddly/PortMasterForwarder
 cd PortMasterForwarder
 python -m pip install -r requirements.txt
 PYTHONPATH=src python -m portmasterforwarder        # Windows: run_from_source.bat
