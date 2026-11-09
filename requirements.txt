@@ -1,0 +1,2 @@
+# Runtime dependency (the app still starts without it, but cannot resize images or show thumbnails)
+Pillow>=9.0

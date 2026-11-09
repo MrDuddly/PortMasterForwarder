@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "portmasterforwarder"
+dynamic = ["version"]
+description = "Your games. Properly organized. Categories, metadata and images for ports on EmulationStation-based handhelds (tested on Knulli only)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "PortMasterForwarder contributors" }]
+keywords = ["knulli", "emulationstation", "portmaster", "retro-handheld", "gamelist", "metadata", "anbernic"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Win32 (MS Windows)",
+    "Environment :: X11 Applications",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Games/Entertainment",
+    "Topic :: Utilities",
+]
+dependencies = ["Pillow>=9.0"]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.5"]
+build = ["pyinstaller>=6.0"]
+gamepad = ["pygame>=2.0"]
+
+[project.gui-scripts]
+portmasterforwarder = "portmasterforwarder.app:main"
+portmasterforwarder-pad = "portmasterforwarder.padgui:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "portmasterforwarder.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+portmasterforwarder = ["assets/*"]
+
+[tool.ruff]
+line-length = 160
+target-version = "py39"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = ["E501", "E731", "E741", "E226"]
